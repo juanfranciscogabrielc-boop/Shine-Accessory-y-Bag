@@ -1,1 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Carteras - Tienda Online</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Incluir Stripe.js para procesar pagos de forma segura -->
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
 
+    <header>
+        <div class="container">
+            <h1 class="logo">Mis Carteras</h1>
+            <button id="cart-btn">
+                🛒 Carrito (<span id="cart-count">0</span>)
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h2>Carteras Hechas a Mano con ❤️</h2>
+                <p>Diseños únicos para un estilo inconfundible.</p>
+            </div>
+        </section>
+
+        <section id="products" class="container">
+            <h2>Nuestros Productos</h2>
+            <div class="product-grid">
+                <!-- Producto 1 -->
+                <div class="product-card" data-id="cartera-01" data-price="2500">
+                    <img src="https://placehold.co/400x300/4a5568/ffffff?text=Cartera+Clásica" alt="Cartera Clásica">
+                    <h3>Cartera Clásica</h3>
+                    <p>Hecha de cuero sintético de alta calidad. Ideal para el día a día.</p>
+                    <p class="price">$2,500.00</p>
+                    <button class="add-to-cart-btn">Añadir al carrito</button>
+                </div>
+                <!-- Producto 2 -->
+                <div class="product-card" data-id="cartera-02" data-price="3200">
+                    <img src="https://placehold.co/400x300/2d3748/ffffff?text=Cartera+Deportiva" alt="Cartera Deportiva">
+                    <h3>Cartera Deportiva</h3>
+                    <p>Con diseño ergonómico y compartimentos extra. Perfecta para tus aventuras.</p>
+                    <p class="price">$3,200.00</p>
+                    <button class="add-to-cart-btn">Añadir al carrito</button>
+                </div>
+                <!-- Producto 3 -->
+                <div class="product-card" data-id="cartera-03" data-price="4500">
+                    <img src="https://placehold.co/400x300/1a202c/ffffff?text=Cartera+Elegante" alt="Cartera Elegante">
+                    <h3>Cartera Elegante</h3>
+                    <p>Un toque de sofisticación para tus ocasiones especiales. Hecha a mano.</p>
+                    <p class="price">$4,500.00</p>
+                    <button class="add-to-cart-btn">Añadir al carrito</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Carrito de Compra (Modal) -->
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Tu Carrito de Compra</h2>
+            <div id="cart-items"></div>
+            <div id="cart-total">
+                <h3>Total: $<span id="total-price">0.00</span></h3>
+            </div>
+            <div class="cart-actions">
+                <button id="clear-cart-btn">Vaciar Carrito</button>
+                <!-- El botón de pagar se mostrará cuando el carrito tenga productos -->
+                <button id="checkout-btn" style="display: none;">Pagar con Stripe</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enlazar nuestro archivo JavaScript al final del body para mejor rendimiento -->
+    <script src="script.js"></script>
+</body>
+</html>
