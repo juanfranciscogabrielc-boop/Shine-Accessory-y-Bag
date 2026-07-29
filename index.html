@@ -3,85 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mis Carteras - Tienda Online Profesional</title>
+    <title>Mis Carteras - Mayorista de Accesorios</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
+    <header class="top-bar">
+        <div class="container">
+            <p>¡Envíos a todo el país! | Compra mayorista y ahorrá</p>
+            <div class="contact-info">
+                <span><i class="fas fa-phone"></i> 0800-123-4567</span>
+                <span><i class="fas fa-envelope"></i> ventas@miscarteras.com</span>
+            </div>
+        </div>
+    </header>
+
     <header class="main-header">
         <div class="container">
             <div class="header-left">
-                <button id="mobile-menu-btn" class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
-                <a href="index.html" class="logo">Mis Carteras</a>
+                <a href="index.html" class="logo">MisCarteras.com</a>
             </div>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="#products">Productos</a></li>
-                    <li><a href="#ofertas">Ofertas</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
-                </ul>
-            </nav>
+            <div class="header-center">
+                <div class="search-bar">
+                    <input type="text" placeholder="Buscar por producto, código o marca...">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
             <div class="header-right">
-                <button id="search-toggle" class="icon-btn"><i class="fas fa-search"></i></button>
+                <button class="icon-btn"><i class="fas fa-user"></i> <span>Mi Cuenta</span></button>
+                <button class="icon-btn"><i class="fas fa-heart"></i> <span>Favoritos</span></button>
                 <button id="cart-toggle" class="icon-btn cart-btn">
                     <i class="fas fa-shopping-cart"></i>
                     <span class="cart-count">0</span>
                 </button>
             </div>
         </div>
-        <!-- Barra de búsqueda oculta -->
-        <div id="search-bar" class="search-bar">
-            <div class="container">
-                <input type="text" id="search-input" placeholder="Buscar carteras...">
-                <button id="search-close"><i class="fas fa-times"></i></button>
-            </div>
-        </div>
     </header>
 
-    <main>
-        <section id="hero" class="hero-section">
-            <div class="hero-slider">
-                <div class="hero-slide" style="background-image: url('https://placehold.co/1920x600/2c3e50/ffffff?text=Nueva+Colección+2026')">
-                    <div class="hero-content">
-                        <h1>Nueva Colección 2026</h1>
-                        <p>Descubre los diseños más innovadores y exclusivos.</p>
-                        <a href="#products" class="cta-button">Comprar Ahora</a>
+    <nav class="main-nav">
+        <div class="container">
+            <ul>
+                <li><a href="#ofertas"><i class="fas fa-fire"></i> OFERTAS</a></li>
+                <li class="dropdown">
+                    <a href="#carteras">CARTERAS <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="#">Carteras Mujer</a>
+                        <a href="#">Carteras Hombre</a>
+                        <a href="#">Billeteras</a>
+                        <a href="#">Porta Documentos</a>
+                        <a href="#">Mochilas</a>
                     </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#marcas">MARCAS <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="#">Marca A</a>
+                        <a href="#">Marca B</a>
+                        <a href="#">Marca C</a>
+                        <a href="#">Ver Todas</a>
+                    </div>
+                </li>
+                <li><a href="#novedades">NOVEDADES</a></li>
+                <li><a href="#mayorista">VENTA MAYORISTA</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero-banners">
+            <div class="container">
+                <div class="banner-main">
+                    <img src="https://placehold.co/1200x400/e74c3c/ffffff?text=HASTA+50%25+OFF+EN+SELECCIÓN" alt="Oferta Principal">
                 </div>
-                <!-- Puedes añadir más slides aquí -->
+                <div class="banner-side">
+                    <img src="https://placehold.co/280x190/3498db/ffffff?text=Envío+Gratis" alt="Envío Gratis">
+                    <img src="https://placehold.co/280x190/2ecc71/ffffff?text=Nuevos+Ingresos" alt="Nuevos Ingresos">
+                </div>
+            </div>
+        </section>
+
+        <section class="info-bar">
+            <div class="container">
+                <div class="info-item">
+                    <i class="fas fa-truck"></i>
+                    <h4>Envíos Rápidos</h4>
+                    <p>A todo el país</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <h4>Compra Segura</h4>
+                    <p>100% Protegido</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-percentage"></i>
+                    <h4>Mejores Precios</h4>
+                    <p>Garantizado</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-headset"></i>
+                    <h4>Soporte</h4>
+                    <p>Atención 24/7</p>
+                </div>
             </div>
         </section>
 
         <section id="products" class="products-section">
             <div class="container">
-                <div class="section-header">
-                    <h2>Nuestros Productos</h2>
-                    <div class="view-toggle">
-                        <button id="grid-view" class="view-btn active"><i class="fas fa-th"></i></button>
-                        <button id="list-view" class="view-btn"><i class="fas fa-list"></i></button>
-                    </div>
-                </div>
+                <h2 class="section-title">Nuestros Productos Destacados</h2>
                 
-                <div class="filters-container">
+                <div class="filters-bar">
                     <div class="filter-group">
-                        <label for="category-filter">Categoría:</label>
-                        <select id="category-filter">
-                            <option value="all">Todas</option>
-                            <option value="mujer">Mujer</option>
-                            <option value="hombre">Hombre</option>
+                        <label>Ordenar por:</label>
+                        <select id="sort-filter">
+                            <option value="default">Más Relevantes</option>
+                            <option value="price-asc">Menor Precio</option>
+                            <option value="price-desc">Mayor Precio</option>
+                            <option value="name">Nombre A-Z</option>
                         </select>
                     </div>
                     <div class="filter-group">
-                        <label for="sort-filter">Ordenar por:</label>
-                        <select id="sort-filter">
-                            <option value="default">Defecto</option>
-                            <option value="price-asc">Precio: Menor a Mayor</option>
-                            <option value="price-desc">Precio: Mayor a Menor</option>
-                            <option value="name-asc">Nombre: A-Z</option>
+                        <label>Filtrar por:</label>
+                        <select id="category-filter">
+                            <option value="all">Todas las Categorías</option>
+                            <option value="mujer">Carteras Mujer</option>
+                            <option value="hombre">Carteras Hombre</option>
+                            <option value="billeteras">Billeteras</option>
                         </select>
                     </div>
                 </div>
@@ -91,88 +141,30 @@
                 </div>
             </div>
         </section>
-    </main>
 
-    <footer class="main-footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Mis Carteras</h3>
-                    <p>Tu tienda de confianza para accesorios de alta calidad.</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Enlaces Rápidos</h3>
-                    <ul>
-                        <li><a href="#products">Productos</a></li>
-                        <li><a href="#ofertas">Ofertas</a></li>
-                        <li><a href="#contacto">Contacto</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Contacto</h3>
-                    <p>Email: info@miscarteras.com</p>
-                    <p>Tel: +54 11 1234-5678</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Mis Carteras. Todos los derechos reservados.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Modal del Carrito -->
-    <div id="cart-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>Tu Carrito de Compras</h2>
-                <span class="close-modal">&times;</span>
-            </div>
-            <div id="cart-items-container" class="cart-items-container">
-                <!-- Los items del carrito se insertarán aquí -->
-            </div>
-            <div class="cart-footer">
-                <h3>Total: \$<span id="cart-total">0.00</span></h3>
-                <div class="cart-actions">
-                    <button id="clear-cart" class="btn-secondary">Vaciar Carrito</button>
-                    <button id="checkout-btn" class="btn-primary">Proceder al Pago</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal de Producto -->
-    <div id="product-modal" class="modal">
-        <div class="modal-content product-modal-content">
-            <span class="close-modal">&times;</span>
-            <div class="product-modal-body">
-                <div class="product-modal-images">
-                    <div class="main-image-container">
-                        <img id="modal-main-image" src="" alt="">
+        <section class="categories-section">
+            <div class="container">
+                <h2 class="section-title">Comprá por Categoría</h2>
+                <div class="category-grid">
+                    <div class="category-card">
+                        <img src="https://placehold.co/300x200/f39c12/ffffff?text=Carteras+Mujer" alt="Carteras Mujer">
+                        <h3>Carteras Mujer</h3>
+                        <a href="#" class="btn-secondary">Ver Más</a>
                     </div>
-                    <div class="thumbnail-container">
-                        <!-- Miniaturas se insertarán con JS -->
+                    <div class="category-card">
+                        <img src="https://placehold.co/300x200/9b59b6/ffffff?text=Carteras+Hombre" alt="Carteras Hombre">
+                        <h3>Carteras Hombre</h3>
+                        <a href="#" class="btn-secondary">Ver Más</a>
+                    </div>
+                    <div class="category-card">
+                        <img src="https://placehold.co/300x200/1abc9c/ffffff?text=Billeteras" alt="Billeteras">
+                        <h3>Billeteras</h3>
+                        <a href="#" class="btn-secondary">Ver Más</a>
+                    </div>
+                    <div class="category-card">
+                        <img src="https://placehold.co/300x200/e67e22/ffffff?text=Mochilas" alt="Mochilas">
+                        <h3>Mochilas</h3>
+                        <a href="#" class="btn-secondary">Ver Más</a>
                     </div>
                 </div>
-                <div class="product-modal-info">
-                    <h2 id="modal-product-name"></h2>
-                    <p id="modal-product-price"></p>
-                    <p id="modal-product-description"></p>
-                    <div class="modal-product-actions">
-                        <div class="quantity-selector">
-                            <button class="quantity-btn minus">-</button>
-                            <input type="number" id="modal-quantity" value="1" min="1">
-                            <button class="quantity-btn plus">+</button>
-                        </div>
-                        <button id="modal-add-to-cart" class="btn-primary">Añadir al Carrito</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal de Checkout -->
-    <div id="checkout-modal" class="modal">
-        <div class="modal-content checkout-modal-content">
-            <div class="modal-header">
-                <h2>Finalizar Compra</h2>
-                <span class="close-modal checkout-close">&times;</span
+           
