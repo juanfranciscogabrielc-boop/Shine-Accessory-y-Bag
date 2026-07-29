@@ -3,79 +3,176 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mis Carteras - Tienda Online</title>
+    <title>Mis Carteras - Tienda Online Profesional</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Incluir Stripe.js para procesar pagos de forma segura -->
-    <script src="https://js.stripe.com/v3/"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-    <header>
+    <header class="main-header">
         <div class="container">
-            <h1 class="logo">Mis Carteras</h1>
-            <button id="cart-btn">
-                🛒 Carrito (<span id="cart-count">0</span>)
-            </button>
+            <div class="header-left">
+                <button id="mobile-menu-btn" class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+                <a href="index.html" class="logo">Mis Carteras</a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#products">Productos</a></li>
+                    <li><a href="#ofertas">Ofertas</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="header-right">
+                <button id="search-toggle" class="icon-btn"><i class="fas fa-search"></i></button>
+                <button id="cart-toggle" class="icon-btn cart-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </button>
+            </div>
+        </div>
+        <!-- Barra de búsqueda oculta -->
+        <div id="search-bar" class="search-bar">
+            <div class="container">
+                <input type="text" id="search-input" placeholder="Buscar carteras...">
+                <button id="search-close"><i class="fas fa-times"></i></button>
+            </div>
         </div>
     </header>
 
     <main>
-        <section class="hero">
-            <div class="container">
-                <h2>Carteras Hechas a Mano con ❤️</h2>
-                <p>Diseños únicos para un estilo inconfundible.</p>
+        <section id="hero" class="hero-section">
+            <div class="hero-slider">
+                <div class="hero-slide" style="background-image: url('https://placehold.co/1920x600/2c3e50/ffffff?text=Nueva+Colección+2026')">
+                    <div class="hero-content">
+                        <h1>Nueva Colección 2026</h1>
+                        <p>Descubre los diseños más innovadores y exclusivos.</p>
+                        <a href="#products" class="cta-button">Comprar Ahora</a>
+                    </div>
+                </div>
+                <!-- Puedes añadir más slides aquí -->
             </div>
         </section>
 
-        <section id="products" class="container">
-            <h2>Nuestros Productos</h2>
-            <div class="product-grid">
-                <!-- Producto 1 -->
-                <div class="product-card" data-id="cartera-01" data-price="2500">
-                    <img src="https://placehold.co/400x300/4a5568/ffffff?text=Cartera+Clásica" alt="Cartera Clásica">
-                    <h3>Cartera Clásica</h3>
-                    <p>Hecha de cuero sintético de alta calidad. Ideal para el día a día.</p>
-                    <p class="price">$2,500.00</p>
-                    <button class="add-to-cart-btn">Añadir al carrito</button>
+        <section id="products" class="products-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Nuestros Productos</h2>
+                    <div class="view-toggle">
+                        <button id="grid-view" class="view-btn active"><i class="fas fa-th"></i></button>
+                        <button id="list-view" class="view-btn"><i class="fas fa-list"></i></button>
+                    </div>
                 </div>
-                <!-- Producto 2 -->
-                <div class="product-card" data-id="cartera-02" data-price="3200">
-                    <img src="https://placehold.co/400x300/2d3748/ffffff?text=Cartera+Deportiva" alt="Cartera Deportiva">
-                    <h3>Cartera Deportiva</h3>
-                    <p>Con diseño ergonómico y compartimentos extra. Perfecta para tus aventuras.</p>
-                    <p class="price">$3,200.00</p>
-                    <button class="add-to-cart-btn">Añadir al carrito</button>
+                
+                <div class="filters-container">
+                    <div class="filter-group">
+                        <label for="category-filter">Categoría:</label>
+                        <select id="category-filter">
+                            <option value="all">Todas</option>
+                            <option value="mujer">Mujer</option>
+                            <option value="hombre">Hombre</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="sort-filter">Ordenar por:</label>
+                        <select id="sort-filter">
+                            <option value="default">Defecto</option>
+                            <option value="price-asc">Precio: Menor a Mayor</option>
+                            <option value="price-desc">Precio: Mayor a Menor</option>
+                            <option value="name-asc">Nombre: A-Z</option>
+                        </select>
+                    </div>
                 </div>
-                <!-- Producto 3 -->
-                <div class="product-card" data-id="cartera-03" data-price="4500">
-                    <img src="https://placehold.co/400x300/1a202c/ffffff?text=Cartera+Elegante" alt="Cartera Elegante">
-                    <h3>Cartera Elegante</h3>
-                    <p>Un toque de sofisticación para tus ocasiones especiales. Hecha a mano.</p>
-                    <p class="price">$4,500.00</p>
-                    <button class="add-to-cart-btn">Añadir al carrito</button>
+
+                <div id="product-grid" class="product-grid">
+                    <!-- Los productos se insertarán aquí con JavaScript -->
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Carrito de Compra (Modal) -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Mis Carteras</h3>
+                    <p>Tu tienda de confianza para accesorios de alta calidad.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="#products">Productos</a></li>
+                        <li><a href="#ofertas">Ofertas</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <p>Email: info@miscarteras.com</p>
+                    <p>Tel: +54 11 1234-5678</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Mis Carteras. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal del Carrito -->
     <div id="cart-modal" class="modal">
         <div class="modal-content">
-            <span class="close-btn">&times;</span>
-            <h2>Tu Carrito de Compra</h2>
-            <div id="cart-items"></div>
-            <div id="cart-total">
-                <h3>Total: $<span id="total-price">0.00</span></h3>
+            <div class="modal-header">
+                <h2>Tu Carrito de Compras</h2>
+                <span class="close-modal">&times;</span>
             </div>
-            <div class="cart-actions">
-                <button id="clear-cart-btn">Vaciar Carrito</button>
-                <!-- El botón de pagar se mostrará cuando el carrito tenga productos -->
-                <button id="checkout-btn" style="display: none;">Pagar con Stripe</button>
+            <div id="cart-items-container" class="cart-items-container">
+                <!-- Los items del carrito se insertarán aquí -->
+            </div>
+            <div class="cart-footer">
+                <h3>Total: \$<span id="cart-total">0.00</span></h3>
+                <div class="cart-actions">
+                    <button id="clear-cart" class="btn-secondary">Vaciar Carrito</button>
+                    <button id="checkout-btn" class="btn-primary">Proceder al Pago</button>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- Enlazar nuestro archivo JavaScript al final del body para mejor rendimiento -->
-    <script src="script.js"></script>
-</body>
-</html>
+    <!-- Modal de Producto -->
+    <div id="product-modal" class="modal">
+        <div class="modal-content product-modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="product-modal-body">
+                <div class="product-modal-images">
+                    <div class="main-image-container">
+                        <img id="modal-main-image" src="" alt="">
+                    </div>
+                    <div class="thumbnail-container">
+                        <!-- Miniaturas se insertarán con JS -->
+                    </div>
+                </div>
+                <div class="product-modal-info">
+                    <h2 id="modal-product-name"></h2>
+                    <p id="modal-product-price"></p>
+                    <p id="modal-product-description"></p>
+                    <div class="modal-product-actions">
+                        <div class="quantity-selector">
+                            <button class="quantity-btn minus">-</button>
+                            <input type="number" id="modal-quantity" value="1" min="1">
+                            <button class="quantity-btn plus">+</button>
+                        </div>
+                        <button id="modal-add-to-cart" class="btn-primary">Añadir al Carrito</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Checkout -->
+    <div id="checkout-modal" class="modal">
+        <div class="modal-content checkout-modal-content">
+            <div class="modal-header">
+                <h2>Finalizar Compra</h2>
+                <span class="close-modal checkout-close">&times;</span
